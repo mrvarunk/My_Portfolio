@@ -123,7 +123,23 @@ const MetricCardAnimated: React.FC<{ card: (typeof METRIC_CARDS)[0]; index: numb
 
 export const Hero: React.FC<HeroProps> = ({ onCopyEmail }) => {
   const [specialtyIndex, setSpecialtyIndex] = useState(0);
+  const [photoTilt, setPhotoTilt] = useState({ rotateX: 0, rotateY: 0 });
   const prefersReducedMotion = useReducedMotion();
+
+  const handlePhotoPointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (prefersReducedMotion || event.pointerType === 'touch') return;
+
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const offsetX = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const offsetY = (event.clientY - bounds.top) / bounds.height - 0.5;
+
+    setPhotoTilt({
+      rotateX: -offsetY * 12,
+      rotateY: offsetX * 12,
+    });
+  };
+
+  const resetPhotoTilt = () => setPhotoTilt({ rotateX: 0, rotateY: 0 });
 
   // Cycle rotating specialty every 3.5s
   useEffect(() => {
@@ -365,21 +381,32 @@ export const Hero: React.FC<HeroProps> = ({ onCopyEmail }) => {
           <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-[#8083ff] via-[#4cd7f6] via-[#4edea3] to-[#8083ff] animate-spin-slow opacity-90 blur-[3px]" />
 
           {/* Photo Container — Clean & Unobstructed */}
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            className="relative w-56 h-56 sm:w-68 sm:h-68 lg:w-80 lg:h-80 xl:w-88 xl:h-88 rounded-full p-[4px] bg-[#121318] shadow-[0_0_50px_rgba(128,131,255,0.3)] animate-float-slow"
-          >
-            <div className="w-full h-full rounded-full overflow-hidden bg-[#181b26] relative">
-              <img
-                src="/assets/profile-photo.jpg"
-                alt="Varun K. — Distributed Systems Engineer & System Architect"
-                className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
-              />
-              {/* Subtle Vignette Gradient for Depth */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-t from-[#0d0e13]/50 via-transparent to-transparent pointer-events-none" />
+          <div className="animate-float-slow">
+            <div
+              onPointerMove={handlePhotoPointerMove}
+              onPointerLeave={resetPhotoTilt}
+              style={{
+                transform: prefersReducedMotion
+                  ? undefined
+                  : `perspective(900px) rotateX(${photoTilt.rotateX}deg) rotateY(${photoTilt.rotateY}deg) scale(${photoTilt.rotateX || photoTilt.rotateY ? 1.03 : 1})`,
+                transition: photoTilt.rotateX || photoTilt.rotateY
+                  ? 'transform 0.12s ease-out'
+                  : 'transform 0.4s ease-out',
+                transformStyle: 'preserve-3d',
+              }}
+              className="relative w-56 h-56 sm:w-68 sm:h-68 lg:w-80 lg:h-80 xl:w-88 xl:h-88 rounded-full p-[4px] bg-[#121318] shadow-[0_0_50px_rgba(128,131,255,0.3)]"
+            >
+              <div className="w-full h-full rounded-full overflow-hidden bg-[#181b26] relative">
+                <img
+                  src="/assets/profile-photo.jpg"
+                  alt="Varun K. — Distributed Systems Engineer & System Architect"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
+                />
+                {/* Subtle Vignette Gradient for Depth */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-t from-[#0d0e13]/50 via-transparent to-transparent pointer-events-none" />
+              </div>
             </div>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
 
