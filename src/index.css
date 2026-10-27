@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface-container-lowest: #0d0e13;
+  --color-surface-container-low: #1a1b21;
+  --color-surface-container: #1e1f25;
+  --color-surface-container-high: #292a2f;
+  --color-surface-container-highest: #34343a;
+  --color-surface-bright: #38393f;
+  --color-surface-dim: #121318;
+  --color-surface: #121318;
+  --color-background: #121318;
+  
+  --color-on-surface: #e3e1e9;
+  --color-on-surface-variant: #c7c4d7;
+  --color-outline: #908fa0;
+  --color-outline-variant: #464554;
+  
+  --color-primary: #c0c1ff;
+  --color-primary-fixed: #e1e0ff;
+  --color-primary-fixed-dim: #c0c1ff;
+  --color-primary-container: #8083ff;
+  --color-on-primary: #1000a9;
+  --color-on-primary-container: #0d0096;
+  
+  --color-secondary: #4edea3;
+  --color-secondary-fixed: #6ffbbe;
+  --color-secondary-fixed-dim: #4edea3;
+  --color-secondary-container: #00a572;
+  --color-on-secondary: #003824;
+  
+  --color-tertiary: #4cd7f6;
+  --color-tertiary-fixed: #acedff;
+  --color-tertiary-fixed-dim: #4cd7f6;
+  --color-tertiary-container: #009eb9;
+  --color-on-tertiary: #003640;
+  
+  --font-display-hero: 'Geist', sans-serif;
+  --font-headline-lg: 'Geist', sans-serif;
+  --font-headline-md: 'Geist', sans-serif;
+  --font-headline-sm: 'Geist', sans-serif;
+  --font-body-lg: 'Inter', sans-serif;
+  --font-body-md: 'Inter', sans-serif;
+  --font-body-sm: 'Inter', sans-serif;
+  --font-label-mono: 'JetBrains Mono', monospace;
+  --font-code-md: 'JetBrains Mono', monospace;
+  --font-code-lg: 'JetBrains Mono', monospace;
+}
+
+@layer base {
+  * {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #121318;
+    color: #e3e1e9;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Geist', sans-serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0e13;
+}
+::-webkit-scrollbar-thumb {
+  background: #292a2f;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #34343a;
+}
+
+/* Micro glow effects */
+.glow-primary {
+  box-shadow: 0 0 24px -4px rgba(128, 131, 255, 0.25);
+}
+
+.glow-secondary {
+  box-shadow: 0 0 24px -4px rgba(78, 222, 163, 0.25);
+}
+
+.glow-tertiary {
+  box-shadow: 0 0 24px -4px rgba(76, 215, 246, 0.25);
+}
+
+/* Animations */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes floatBadge {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.02);
+  }
+}
+
+@keyframes textShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes scanlineSheen {
+  0% {
+    transform: translateX(-100%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-20deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 12s linear infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-float-badge {
+  animation: floatBadge 4s ease-in-out infinite;
+}
+
+.animate-text-shimmer {
+  background-size: 200% auto;
+  animation: textShimmer 4s ease infinite;
+}
+
+.sheen-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.sheen-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  transform: translateX(-150%) skewX(-25deg);
+  pointer-events: none;
+}
+
+.sheen-effect:hover::after {
+  animation: scanlineSheen 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Traveling Border Beam */
+@keyframes borderBeam {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
+}
+
+/* Blueprint Grid Pattern */
+.blueprint-grid {
+  background-image: 
+    linear-gradient(to right, rgba(76, 215, 246, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(76, 215, 246, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
