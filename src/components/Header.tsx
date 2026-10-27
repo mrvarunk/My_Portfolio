@@ -71,7 +71,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Terminal Command Button */}
           <button
             onClick={onOpenTerminalModal}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#1e1f25] hover:bg-[#292a2f] text-[#c7c4d7] hover:text-[#e3e1e9] border border-white/[0.08] text-xs font-mono transition-colors"
+            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#1e1f25] hover:bg-[#292a2f] text-[#c7c4d7] hover:text-[#e3e1e9] border border-white/[0.08] text-xs font-mono transition-colors"
             title="Open Interactive Terminal (or press ⌘K)"
             aria-label="Open Interactive Terminal"
           >
@@ -85,7 +85,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Resume / Contact Button */}
           <button
             onClick={onOpenResumeModal}
-            className="relative group inline-flex items-center justify-center font-mono text-xs px-3 sm:px-4 py-1.5 rounded-lg bg-[#8083ff] text-[#0d0096] font-semibold shadow-[0_0_16px_rgba(128,131,255,0.25)] hover:shadow-[0_0_24px_rgba(128,131,255,0.45)] hover:bg-[#c0c1ff] transition-all duration-200"
+            className="relative group hidden sm:inline-flex items-center justify-center font-mono text-xs px-3 sm:px-4 py-1.5 rounded-lg bg-[#8083ff] text-[#0d0096] font-semibold shadow-[0_0_16px_rgba(128,131,255,0.25)] hover:shadow-[0_0_24px_rgba(128,131,255,0.45)] hover:bg-[#c0c1ff] transition-all duration-200"
             aria-label="Resume and Contact"
           >
             Resume / Contact
@@ -93,7 +93,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* User Profile Avatar */}
           <div
-            className="w-8 h-8 rounded-full overflow-hidden p-[1.5px] bg-gradient-to-tr from-[#8083ff] to-[#4edea3] cursor-pointer shadow-sm hover:ring-2 hover:ring-[#8083ff]/50 transition-all"
+            className="hidden sm:block w-8 h-8 rounded-full overflow-hidden p-[1.5px] bg-gradient-to-tr from-[#8083ff] to-[#4edea3] cursor-pointer shadow-sm hover:ring-2 hover:ring-[#8083ff]/50 transition-all"
             title="Varun K. (MSRIT)"
             onClick={onOpenResumeModal}
           >

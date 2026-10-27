@@ -76,7 +76,7 @@ export const TimelineSection: React.FC = () => {
                 {EDUCATION[1].period}
               </span>
             </div>
-            <div className="flex items-center justify-between text-xs sm:text-sm text-[#c7c4d7]">
+            <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-xs sm:text-sm text-[#c7c4d7]">
               <span>{EDUCATION[1].degree}</span>
               <span className="font-mono text-xs text-[#c0c1ff] font-semibold">
                 {EDUCATION[1].score}
@@ -101,7 +101,7 @@ export const TimelineSection: React.FC = () => {
                 {EDUCATION[2].period}
               </span>
             </div>
-            <div className="flex items-center justify-between text-xs sm:text-sm text-[#c7c4d7]">
+            <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-xs sm:text-sm text-[#c7c4d7]">
               <span>{EDUCATION[2].degree}</span>
               <span className="font-mono text-xs text-[#c0c1ff] font-semibold">
                 {EDUCATION[2].score}

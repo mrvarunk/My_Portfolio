@@ -80,7 +80,7 @@ const ProjectCard: React.FC<{
           : 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)',
         transition: isHovered ? 'transform 0.08s ease-out' : 'transform 0.4s ease-out',
       }}
-      className="group relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-[#1e1f25] border border-white/[0.08] hover:border-white/[0.22] transition-colors duration-300 shadow-xl overflow-hidden"
+      className="group relative flex flex-col justify-between p-4 sm:p-7 rounded-2xl bg-[#1e1f25] border border-white/[0.08] hover:border-white/[0.22] transition-colors duration-300 shadow-xl overflow-hidden"
     >
       {/* Dynamic Cursor Proximity Spotlight Glow */}
       {isHovered && (
@@ -270,7 +270,7 @@ const ProjectCard: React.FC<{
       </div>
 
       {/* Bottom Actions Bar */}
-      <div className="flex items-center justify-between pt-5 mt-5 border-t border-white/[0.06] bg-transparent relative z-10">
+      <div className="flex flex-wrap items-center justify-between gap-3 pt-5 mt-5 border-t border-white/[0.06] bg-transparent relative z-10">
         <a
           href={project.sourceUrl}
           target="_blank"

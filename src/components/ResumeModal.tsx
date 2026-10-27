@@ -34,17 +34,17 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose, onCop
     >
       <div className="relative w-full max-w-4xl bg-[#1e1f25] border border-white/[0.12] rounded-2xl shadow-2xl flex flex-col max-h-[90vh] overflow-hidden">
         {/* Top Header */}
-        <div className="flex items-center justify-between px-6 py-3.5 bg-[#121318] border-b border-white/[0.08]">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center justify-between gap-2 px-3 sm:px-6 py-3.5 bg-[#121318] border-b border-white/[0.08]">
+          <div className="flex min-w-0 flex-1 items-center gap-2">
             <span className="material-symbols-outlined text-[#8083ff] text-[22px]">
               description
             </span>
-            <span id="resume-title" className="text-base font-semibold text-[#e3e1e9]">
+            <span id="resume-title" className="text-sm sm:text-base font-semibold text-[#e3e1e9]">
               Varun K. — Curriculum Vitae &amp; Systems Engineering Record
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="ml-auto flex shrink-0 items-center gap-2">
             <button
               onClick={handlePrint}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#292a2f] hover:bg-[#34343a] text-xs font-mono text-[#e3e1e9] border border-white/[0.08]"
@@ -63,7 +63,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose, onCop
         </div>
 
         {/* Scrollable Printable Document */}
-        <div className="flex-1 p-6 sm:p-10 overflow-y-auto bg-[#121318] text-[#e3e1e9] font-sans">
+        <div className="flex-1 p-4 sm:p-10 overflow-y-auto bg-[#121318] text-[#e3e1e9] font-sans">
           {/* Header */}
           <div className="border-b border-white/[0.1] pb-6 mb-6">
             <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#e3e1e9]">

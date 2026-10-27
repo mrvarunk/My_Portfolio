@@ -85,14 +85,14 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
     >
       <div className="relative w-full max-w-3xl bg-[#0d0e13] border border-white/[0.15] rounded-xl shadow-2xl flex flex-col h-[520px] max-h-[85vh] overflow-hidden">
         {/* Terminal Title Bar */}
-        <div className="flex items-center justify-between px-4 py-2.5 bg-[#1e1f25] border-b border-white/[0.08]">
+        <div className="flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5 bg-[#1e1f25] border-b border-white/[0.08]">
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1.5">
               <span className="w-3 h-3 rounded-full bg-[#EF4444]" />
               <span className="w-3 h-3 rounded-full bg-[#F59E0B]" />
               <span className="w-3 h-3 rounded-full bg-[#10B981]" />
             </div>
-            <span id="terminal-title" className="font-mono text-xs text-[#908fa0] ml-2">
+            <span id="terminal-title" className="font-mono text-[10px] sm:text-xs text-[#908fa0] ml-1 sm:ml-2">
               varun@cluster-us-east-1:~#
             </span>
           </div>
@@ -165,7 +165,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
             placeholder="Type a command (e.g., 'help', 'stats', 'pgp', 'curl resume')..."
-            className="flex-1 bg-transparent border-0 outline-none font-mono text-xs text-[#e3e1e9] placeholder-[#908fa0]"
+            className="min-w-0 flex-1 bg-transparent border-0 outline-none font-mono text-xs text-[#e3e1e9] placeholder-[#908fa0]"
             aria-label="Terminal command input"
           />
           <button

@@ -136,7 +136,7 @@ export const Hero: React.FC<HeroProps> = ({ onCopyEmail }) => {
   return (
     <section
       id="overview"
-      className="relative w-full max-w-7xl mx-auto px-4 sm:px-8 pt-8 sm:pt-14 pb-8 flex flex-col items-start gap-8"
+      className="relative w-full max-w-7xl mx-auto px-4 sm:px-8 pt-8 sm:pt-14 pb-8 flex flex-col items-start gap-8 overflow-x-clip"
     >
       {/* Ambient Animated Backdrop Orbs */}
       <motion.div
@@ -207,7 +207,7 @@ export const Hero: React.FC<HeroProps> = ({ onCopyEmail }) => {
             >
               <h1
                 aria-label="Hi, I'm Varun K."
-                className="text-4xl sm:text-5xl lg:text-[56px] font-bold tracking-tight text-[#e3e1e9]"
+                className="text-3xl sm:text-5xl lg:text-[56px] font-bold tracking-tight text-[#e3e1e9]"
               >
                 <span className="font-mono text-[#e1e0ff] drop-shadow-[0_0_20px_rgba(128,131,255,0.4)]">
                   {Array.from("Hi, I'm Varun K.").map((character, index) => (
@@ -249,10 +249,10 @@ export const Hero: React.FC<HeroProps> = ({ onCopyEmail }) => {
               initial={prefersReducedMotion ? false : { opacity: 0, clipPath: 'inset(0 100% 0 0)' }}
               animate={{ opacity: 1, clipPath: 'inset(0 0% 0 0)' }}
               transition={{ duration: 0.9, delay: prefersReducedMotion ? 0 : 0.55, ease: [0.22, 1, 0.36, 1] }}
-              className="text-2xl sm:text-3xl lg:text-[38px] font-semibold leading-[1.25] tracking-tight"
+              className="text-xl sm:text-3xl lg:text-[38px] font-semibold leading-[1.25] tracking-tight"
             >
               <span className="text-[#c7c4d7] font-medium mr-2">I engineer</span>
-              <span className="inline-block text-[#e1e0ff] font-bold">
+              <span className="text-[#e1e0ff] font-bold">
                 scalable distributed backends
               </span>{' '}
               <span className="text-[#c7c4d7] font-medium">&amp;</span>{' '}

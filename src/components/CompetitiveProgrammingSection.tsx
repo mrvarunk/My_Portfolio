@@ -67,7 +67,7 @@ export const CompetitiveProgrammingSection: React.FC = () => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: idx * 0.12 }}
               whileHover={{ y: -6 }}
-              className={`flex flex-col justify-between p-6 rounded-xl bg-[#1e1f25] hover:bg-[#25262e] border border-white/[0.08] ${borderHover} transition-all duration-300 shadow-md hover:shadow-xl`}
+              className={`flex flex-col justify-between p-4 sm:p-6 rounded-xl bg-[#1e1f25] hover:bg-[#25262e] border border-white/[0.08] ${borderHover} transition-all duration-300 shadow-md hover:shadow-xl`}
             >
               <div className="flex flex-col gap-3">
                 {/* Header Tag and Status */}
@@ -145,9 +145,9 @@ export const CompetitiveProgrammingSection: React.FC = () => {
                 {/* Stats Breakdown */}
                 <div className="flex flex-col gap-1.5 text-xs text-[#c7c4d7]">
                   {platform.stats.map((s, sIdx) => (
-                    <div key={sIdx} className="flex justify-between items-center py-0.5 border-b border-white/[0.02]">
-                      <span>{s.label}</span>
-                      <span className={`font-mono font-medium ${s.valueClass?.includes('secondary') ? 'text-[#4edea3]' : 'text-[#e3e1e9]'}`}>
+                    <div key={sIdx} className="flex flex-wrap justify-between items-start gap-x-2 gap-y-0.5 py-0.5 border-b border-white/[0.02]">
+                      <span className="min-w-0">{s.label}</span>
+                      <span className={`min-w-0 text-right break-words font-mono font-medium ${s.valueClass?.includes('secondary') ? 'text-[#4edea3]' : 'text-[#e3e1e9]'}`}>
                         {s.value}
                       </span>
                     </div>
@@ -188,7 +188,7 @@ export const CompetitiveProgrammingSection: React.FC = () => {
                 </span>
               </div>
               <div className="flex flex-col flex-1 min-w-0">
-                <div className="flex items-center justify-between gap-2 mb-0.5">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-0.5">
                   <span
                     className={`font-mono text-[11px] font-semibold tracking-wider ${
                       honor.typeColor === 'text-secondary' ? 'text-[#4edea3]' : 'text-[#c0c1ff]'
@@ -226,7 +226,7 @@ export const CompetitiveProgrammingSection: React.FC = () => {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.45, delay: idx * 0.15 }}
                 whileHover={{ y: -4, borderColor: 'rgba(76, 215, 246, 0.4)' }}
-                className="group flex items-center gap-4 p-4 rounded-xl bg-[#1e1f25] hover:bg-[#25262e] border border-white/[0.08] transition-all shadow-sm hover:shadow-lg cursor-pointer"
+                className="group flex items-start sm:items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-[#1e1f25] hover:bg-[#25262e] border border-white/[0.08] transition-all shadow-sm hover:shadow-lg cursor-pointer"
               >
                 {Content}
               </motion.a>
@@ -241,7 +241,7 @@ export const CompetitiveProgrammingSection: React.FC = () => {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.45, delay: idx * 0.15 }}
               whileHover={{ y: -3 }}
-              className="flex items-center gap-4 p-4 rounded-xl bg-[#1e1f25] border border-white/[0.08] hover:border-white/[0.18] transition-all shadow-sm"
+              className="flex items-start sm:items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-[#1e1f25] border border-white/[0.08] hover:border-white/[0.18] transition-all shadow-sm"
             >
               {Content}
             </motion.div>
