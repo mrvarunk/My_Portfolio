@@ -134,8 +134,8 @@ export const Hero: React.FC<HeroProps> = ({ onCopyEmail }) => {
     const offsetY = (event.clientY - bounds.top) / bounds.height - 0.5;
 
     setPhotoTilt({
-      rotateX: -offsetY * 12,
-      rotateY: offsetX * 12,
+      rotateX: -offsetY * 40,
+      rotateY: offsetX * 40,
     });
   };
 
